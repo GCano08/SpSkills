@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Galeria de Imagens</title>
+    <!-- Link para o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .img {
+            margin-top: 20px;
+            padding-bottom: 10px;
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #promocao{
+            background-color: #acacac;
+        }
+        #geral{
+            background-color: bisque;
+        }
+        #leo{
+            background-color: rgb(157, 201, 202);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/1024px-Palmeiras_logo.svg.png" width="50px" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#leo">Reserva Leo</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#promocao">Promoção</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Fidelidade</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">PowerBI-Lista</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#geral">Geral</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="img" id="promocao">
+            <div class="img">
+                <h2>Achar conflitantes</h2>
+                <img src="./imgs/queryGrande.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Encher tabela</h2>
+                <img src="./imgs/encherTabela.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Verificar ação</h2>
+                <img src="./imgs/verificaAcao.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Carrosel</h2>
+                <img src="./imgs/carrosel.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Adicionar Checados</h2>
+                <img src="./imgs/adicionarChecados.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Carregar Checados</h2>
+                <img src="./imgs/carregarSelecionados.jpg" alt="">
+            </div>
+        </section>
+        <section class="img" id="geral">
+            <div class="img">
+                <h2>Mencionar raiz</h2>
+                <img src="./imgs/raiz.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Mencionar raiz combinando</h2>
+                <img src="./imgs/combinarRaiz.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Settings.Settings</h2>
+                <img src="./imgs/configSettings.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Filho executar function do Pai</h2>
+                <img src="./imgs/pai.jpg" alt="">
+            </div>
+        </section>
+        <section class="img" id="leo">
+            <div class="img">
+                <h2>Token aletorio 5 numeros</h2>
+                <img src="./imgs/token.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Inicia os termos e envia token</h2>
+                <img src="./imgs/bagunca.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Alternar sozinho</h2>
+                <img src="./imgs/alternar.jpg" alt="">
+            </div>
+            <div class="img">
+                <h2>Primeira vez</h2>
+                <img src="./imgs/primeiraVez.jpg" alt="">
+            </div>
+        </section>
+    </div>
+
+    <!-- Script para o Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
