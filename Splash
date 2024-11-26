@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeuProjeto.SplashPage"
+             BackgroundColor="White">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="20">
+        <!-- Logo da Aplicação -->
+        <Image Source="logo.png" WidthRequest="150" HeightRequest="150"/>
+
+        <!-- Contador -->
+        <Label x:Name="CounterLabel" Text="1" FontSize="Large" HorizontalTextAlignment="Center" />
+
+        <!-- Indicador de Progresso -->
+        <ProgressBar x:Name="ProgressBar" Progress="0" WidthRequest="200" />
+    </StackLayout>
+</ContentPage>
+
+----------------------------------------------------------------------------------------------------------------
+
+
+using System;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+
+namespace SeuProjeto
+{
+    public partial class SplashPage : ContentPage
+    {
+        public SplashPage()
+        {
+            InitializeComponent();
+            StartSplashSequence();
+        }
+
+        private async void StartSplashSequence()
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                // Atualizar contador
+                CounterLabel.Text = i.ToString();
+
+                // Atualizar progresso
+                ProgressBar.Progress = i / 5.0;
+
+                // Esperar 1 segundo
+                await Task.Delay(1000);
+            }
+
+            // Redirecionar para a página principal
+            Application.Current.MainPage = new MainPage();
+        }
+    }
+}
+
+
+----------------------------------------------------------------------------------
+
+public App()
+{
+    InitializeComponent();
+
+    MainPage = new SplashPage(); // Define a SplashPage como inicial
+}
