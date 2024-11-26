@@ -1,0 +1,2 @@
+[Run]
+Filename: "sqlcmd"; Parameters: "-S .\SQLEXPRESS -i ""{app}\script.sql""";
