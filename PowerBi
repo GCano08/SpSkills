@@ -1,0 +1,83 @@
+1. Importação de Dados
+Passos:
+-Abrir o Power BI Desktop.
+-Clique em "Obter Dados" → "Texto/CSV" → Selecione um arquivo CSV (repita para cada arquivo fornecido).
+Após carregar o arquivo:
+-Clique em "Transformar Dados" para abrir o Power Query.
+-No Power Query, para cada tabela:
+-Remover Linhas em Branco: Clique em "Remover Linhas" → "Remover Linhas em Branco".
+-Remover Colunas Nulas: Clique no filtro da coluna e selecione apenas valores relevantes.
+-Remover Duplicatas: Selecione uma ou mais colunas que devem ser únicas → Clique em "Remover Duplicadas".
+-Aplicar Cabeçalhos: Verifique se a primeira linha é o cabeçalho → Use "Usar Primeira Linha como Cabeçalho" se necessário.
+-Resolva inconsistências (Ex.: tipos de dados incompatíveis, formatos diferentes).
+Clique em "Fechar e Aplicar" para salvar as alterações.
+2. Estabelecer Relacionamentos
+Passos:
+Clique na aba "Modelagem" ou no ícone de relações.
+Arraste o campo de uma tabela para conectar com o campo correspondente em outra tabela (Ex.: ClienteID, ProdutoID).
+Verifique se os relacionamentos estão corretos:
+Cardinalidade: Defina como "Um para Muitos" ou "Muitos para Muitos", dependendo da estrutura.
+Filtragem cruzada: Geralmente "Ambas".
+Salve as alterações.
+3. Criação do Painel
+Configuração Inicial:
+Na aba "Relatório", crie uma página para cada tema:
+Nomeie as páginas clicando com o botão direito na aba → "Renomear".
+Adicione a Logo:
+Clique em "Inserir" → "Imagem" e insira a logo da empresa em todas as páginas.
+Use uma guia de estilos consistente para cores, fontes e tamanhos.
+4. Criação de Gráficos
+Exemplo: Gráficos na Página "Clientes"
+Gráfico de Pizza (Clientes Ativos x Desistentes):
+Selecione "Gráfico de Pizza" na aba "Visualizações".
+Arraste o campo de status (ativo/desistente) para Legendas e o número total para Valores.
+Gráfico de Barras Empilhadas (Faixa Etária x Gênero):
+Escolha "Gráfico de Barras Empilhadas".
+Arraste faixa etária para Eixo, gênero para Legendas, e o número de clientes para Valores.
+Gráfico de Dispersão (Frequência x Valor Médio de Compras):
+Escolha "Gráfico de Dispersão".
+Arraste frequência para o eixo X e valor médio para o eixo Y.
+Cartão (Total de Clientes):
+Escolha "Cartão".
+Arraste o campo de contagem de clientes para ele.
+Página "Produtos"
+Barras Horizontais (Top 5 Margens de Lucro):
+Use "Gráfico de Barras Empilhadas".
+Filtre para mostrar apenas os 5 produtos com maior margem.
+Segmentação de Dados:
+Adicione o visual "Segmentação de Dados".
+Arraste o campo "Categoria de Produto" para ele.
+Repita o processo com os visuais indicados para cada página.
+
+5. Análise de Sentimentos nos Comentários
+Passos:
+Criar Medida para Sentimentos:
+No Power BI, crie uma coluna calculada com DAX:
+DAX
+Copiar código
+Sentimento = 
+IF (
+    COUNTX(FILTER(PalavrasBoas, CONTAINSSTRING([Comentário], [Palavra])), 1) >
+    COUNTX(FILTER(PalavrasRuins, CONTAINSSTRING([Comentário], [Palavra])), 1),
+    "Positivo",
+    IF (
+        COUNTX(FILTER(PalavrasBoas, CONTAINSSTRING([Comentário], [Palavra])), 1) <
+        COUNTX(FILTER(PalavrasRuins, CONTAINSSTRING([Comentário], [Palavra])), 1),
+        "Negativo",
+        "Neutro"
+    )
+)
+Criação dos Gráficos:
+Pizza: Sentimentos (Positivo, Negativo, Neutro).
+Linhas: Sentimentos semanais.
+Tabela: Média de sentimentos.
+6. Navegação via Menus
+Passos:
+Criar Menu Inicial:
+Insira botões clicando em "Inserir" → "Botão" e selecione um estilo.
+Configure os botões para navegar entre as páginas:
+Clique no botão → "Ação" → "Ir para página" → Escolha a página.
+Adicione botões de voltar em cada página:
+Repita o processo acima, mas configure a ação para ir à página inicial.
+7. Exportação
+Salve o painel como: "BelleCroissantLyonnais_Dashboard.pbix".
