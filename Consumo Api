@@ -1,0 +1,4 @@
+HTTPRESPONSEMESSAGE retorno = await client.GetAsync("Rota")
+String Data = await retorno.content.ReadAsStringAsync()
+var itens = JsonConvert.DeserializeObject<List<Itens>>(data)
+MyCollectionView.ItensSource = itens
