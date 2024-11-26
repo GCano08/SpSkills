@@ -1,0 +1,50 @@
+<CollectionView ItemsSource="{Binding Items}">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Label Text="{Binding Name}" FontSize="20" />
+                <Label Text="{Binding Description}" FontSize="14" TextColor="Gray" />
+            </StackLayout>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>
+
+-------------------------
+
+public partial class MainPage : ContentPage
+{
+    public ObservableCollection<Item> Items { get; set; }
+
+    public MainPage()
+    {
+        InitializeComponent();
+
+        Items = new ObservableCollection<Item>
+        {
+            new Item { Name = "Item 1", Description = "Description 1" },
+            new Item { Name = "Item 2", Description = "Description 2" },
+            new Item { Name = "Item 3", Description = "Description 3" }
+        };
+
+        BindingContext = this;
+    }
+}
+
+public class Item
+{
+    public string Name { get; set; }
+    public string Description { get; set; }
+}
+
+------------------------------------------------------
+
+evento de escolher 
+
+<CollectionView ItemsSource="{Binding Items}" SelectionChanged="OnSelectionChanged">
+</CollectionView>
+
+void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+{
+    var selectedItem = e.CurrentSelection.FirstOrDefault() as Item;
+    // Lógica para lidar com o item selecionado.
+}
